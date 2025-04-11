@@ -8,6 +8,10 @@ vcpkg_from_github(
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
+    OPTIONS
+        WITH_BZIP2=ON
+        WITH_LIBLZMA=ON
+        WITH_OPENSSL=ON
 )
 
 vcpkg_cmake_install()

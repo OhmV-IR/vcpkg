@@ -4,7 +4,11 @@
   "description": "Qt addon providing access to numerous types of archives",
   "homepage": "https://invent.kde.org/frameworks/karchive",
   "dependencies": [
+    "bzip2",
     "ecm",
+    "liblzma",
+    "openssl",
+    "qt",
     {
       "name": "vcpkg-cmake",
       "host": true
@@ -12,6 +16,7 @@
     {
       "name": "vcpkg-cmake-config",
       "host": true
-    }
+    },
+    "zlib"
   ]
 }
