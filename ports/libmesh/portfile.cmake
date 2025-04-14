@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO libMesh/libmesh
     REF "v${VERSION}"
-    SHA512 53ad41ed0cd99cb5096ff338a3ff5d8a8ecbfb17dc1d7ee0d2b0cbffecbede7f7c11b7c3c2233cec9dde0988c8828ba0199247effd3442befc72230e641a185e
+    SHA512 233c12c06e2530f4edd4e1de606491407249b50d511fa06a1ce8f18745c79a71f457684ae9ec6ba9abfb26e42ac71dc76b3f55cb94eb4cf38b6da33a0b05f747
     HEAD_REF master
 )
 
