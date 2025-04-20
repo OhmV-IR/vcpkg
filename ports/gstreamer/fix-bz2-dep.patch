@@ -1,13 +1,3 @@
-From bcc40f0d16e6a02ec82e78821a8b3fb75a57108a Mon Sep 17 00:00:00 2001
-From: Adrien Bourdeaux <bourdeaux.adrien@gmail.com>
-Date: Fri, 18 Apr 2025 18:06:52 -0400
-Subject: [PATCH] fix bz2 dep
-
----
- subprojects/gst-plugins-bad/ext/bz2/meson.build       | 2 +-
- subprojects/gst-plugins-good/gst/matroska/meson.build | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
 diff --git a/subprojects/gst-plugins-bad/ext/bz2/meson.build b/subprojects/gst-plugins-bad/ext/bz2/meson.build
 index e7d8feb962..9908a4ca81 100644
 --- a/subprojects/gst-plugins-bad/ext/bz2/meson.build
@@ -34,6 +24,3 @@ index 3dc9292f40..747e608edc 100644
  cdata.set('HAVE_BZ2', bz2_dep.found() and cc.has_header('bzlib.h'))
  
  gstmatroska = library('gstmatroska',
--- 
-2.47.1.windows.2
-
