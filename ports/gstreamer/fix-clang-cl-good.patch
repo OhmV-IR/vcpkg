@@ -1,12 +1,3 @@
-From fa717da719fed181c61149fa08f0423dfea25771 Mon Sep 17 00:00:00 2001
-From: Adrien Bourdeaux <bourdeaux.adrien@gmail.com>
-Date: Thu, 17 Apr 2025 19:46:32 -0400
-Subject: [PATCH] fix-clang-cl-good
-
----
- subprojects/gst-plugins-good/meson.build | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
 diff --git a/subprojects/gst-plugins-good/meson.build b/subprojects/gst-plugins-good/meson.build
 index 63554ba9f7..370d9e7950 100644
 --- a/subprojects/gst-plugins-good/meson.build
@@ -29,6 +20,3 @@ index 63554ba9f7..370d9e7950 100644
  cdata.set_quoted('VERSION', gst_version)
  cdata.set_quoted('PACKAGE_VERSION', gst_version)
  cdata.set_quoted('GST_LICENSE', 'LGPL')
--- 
-2.47.1.windows.2
-

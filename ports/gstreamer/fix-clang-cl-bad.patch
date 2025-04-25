@@ -1,15 +1,3 @@
-From f99f307c77e7252df2ca0bed8bd51febd38106c6 Mon Sep 17 00:00:00 2001
-From: Adrien Bourdeaux <bourdeaux.adrien@gmail.com>
-Date: Thu, 17 Apr 2025 19:52:44 -0400
-Subject: [PATCH] fix-clang-cl-bad
-
----
- subprojects/gst-plugins-bad/ext/dts/meson.build   | 2 +-
- subprojects/gst-plugins-bad/meson.build           | 2 +-
- subprojects/gst-plugins-bad/sys/d3d11/meson.build | 4 ++--
- subprojects/gst-plugins-bad/sys/msdk/meson.build  | 4 ++--
- 4 files changed, 6 insertions(+), 6 deletions(-)
-
 diff --git a/subprojects/gst-plugins-bad/ext/dts/meson.build b/subprojects/gst-plugins-bad/ext/dts/meson.build
 index dc884e03ab..82bfc53ba6 100644
 --- a/subprojects/gst-plugins-bad/ext/dts/meson.build
@@ -77,6 +65,3 @@ index 79e7200da5..4aad1d7de0 100644
  else
    libdl_dep = cc.find_library('dl', required: get_option('msdk'))
    libgudev_dep = dependency('gudev-1.0', required: get_option('msdk'), allow_fallback: true)
--- 
-2.47.1.windows.2
-
