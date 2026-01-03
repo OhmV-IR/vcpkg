@@ -5,7 +5,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO fltk/fltk
     REF "release-${VERSION}"
-    SHA512 b18ff6322349af4416a37d28c4f42ebe355260786ed42bdd54dcc20dc92db1a38a8db74e6d637fdff8f320bdd51e2515c0fa939d30679c5f22ea99fb32c97204
+    SHA512 51ca9fd8d5903bbfb4d18145dd85a89f2e4281baf224d34d0a8b67591ff8b00b151cf1b353fd3871a1456d443848a7f69df8ecc6c959fbf6135d019d97099c28
     PATCHES
         dependencies.patch
         config-path.patch
