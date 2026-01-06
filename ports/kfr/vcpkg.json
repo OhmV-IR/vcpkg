@@ -46,7 +46,9 @@
           "name": "kfr",
           "default-features": false,
           "features": [
-            "dft"
+            "audio",
+            "dft",
+            "dsp"
           ]
         }
       ]
