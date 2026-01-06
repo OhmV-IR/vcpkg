@@ -36,6 +36,11 @@ vcpkg_cmake_config_fixup(CONFIG_PATH "lib/cmake/${PORT}")
 
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
+list(LENGTH FEATURES features_len)
+if(features_len EQUAL 1 AND FEATURES STREQUAL "core")
+    file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug" "${CURRENT_PACKAGES_DIR}/lib")
+endif()
+
 vcpkg_install_copyright(
     COMMENT [[
 KFR is distributed under dual GPLv2/v3 and commercial license.
