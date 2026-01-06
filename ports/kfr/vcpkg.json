@@ -15,8 +15,29 @@
     }
   ],
   "features": {
+    "alac": {
+      "description": "Enable ALAC audio module",
+      "dependencies": [
+        "alac",
+        {
+          "name": "kfr",
+          "features": [
+            "audio"
+          ]
+        }
+      ]
+    },
     "audio": {
-      "description": "Enable Audio modules"
+      "description": "Enable Audio modules",
+      "dependencies": [
+        {
+          "name": "kfr",
+          "features": [
+            "dsp",
+            "io"
+          ]
+        }
+      ]
     },
     "capi": {
       "description": "Enable C API build.",
@@ -34,10 +55,37 @@
       "description": "Enable DFT and related algorithms."
     },
     "dsp": {
-      "description": "Enable DSP modules"
+      "description": "Enable DSP modules",
+      "dependencies": [
+        "boost-math"
+      ]
+    },
+    "flac": {
+      "description": "Enable FLAC audio module",
+      "dependencies": [
+        {
+          "name": "kfr",
+          "features": [
+            "audio"
+          ]
+        },
+        "libflac"
+      ]
     },
     "io": {
       "description": "Enable IO modules"
+    },
+    "ogg": {
+      "description": "Enable OGG audio module",
+      "dependencies": [
+        {
+          "name": "kfr",
+          "features": [
+            "audio"
+          ]
+        },
+        "libogg"
+      ]
     }
   }
 }
