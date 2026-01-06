@@ -8,6 +8,7 @@ vcpkg_from_github(
     HEAD_REF main
     PATCHES
         fix-alac-dep.patch
+	make-capi-static.patch
 )
 
 vcpkg_check_features(
