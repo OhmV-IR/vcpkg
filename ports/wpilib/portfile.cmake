@@ -57,6 +57,9 @@ endif()
 
 foreach(wpi_pkg IN LISTS PACKAGES_TO_FIXUP)
   vcpkg_cmake_config_fixup(PACKAGE_NAME ${wpi_pkg})
+  file(READ "${CURRENT_PACKAGES_DIR}/share/${wpi_pkg}/${wpi_pkg}-config.cmake" WPI_CONFIG_CONTENTS)
+  string(REPLACE "SELF_DIR" "WPI_SELF_DIR" WPI_CONFIG_CONTENTS "${WPI_CONFIG_CONTENTS}")
+  file(WRITE "${CURRENT_PACKAGES_DIR}/share/${wpi_pkg}/${wpi_pkg}-config.cmake" "${WPI_CONFIG_CONTENTS}")
 endforeach()
 
 
