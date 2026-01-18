@@ -10690,7 +10690,7 @@
     },
     "wpilib": {
       "baseline": "2026.2.1",
-      "port-version": 0
+      "port-version": 1
     },
     "wren": {
       "baseline": "0.4.0",

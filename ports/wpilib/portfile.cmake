@@ -34,7 +34,28 @@ vcpkg_cmake_configure(
 
 vcpkg_cmake_install()
 
-vcpkg_cmake_config_fixup(PACKAGE_NAME wpiutil)
+set(PACKAGES_TO_FIXUP wpiutil)
+
+if("cameraserver" IN_LIST FEATURES)
+  list(APPEND PACKAGES_TO_FIXUP "cameraserver" "cscore" "apriltag")
+endif()
+if("ntcore" IN_LIST FEATURES)
+  list(APPEND PACKAGES_TO_FIXUP "ntcore" "wpinet")
+endif()
+if("wpimath" IN_LIST FEATURES)
+  list(APPEND PACKAGES_TO_FIXUP "wpimath")
+endif()
+if("wpical" IN_LIST FEATURES)
+  list(APPEND PACKAGES_TO_FIXUP "wpical")
+endif()
+if("allwpilib" IN_LIST FEATURES)
+  list(APPEND PACKAGES_TO_FIXUP "fieldImages" "hal" "romiVendorDep" "wpilibc" "wpilibNewCommands" "xrpVendorDep")
+endif()
+
+foreach(wpi_pkg IN LISTS PACKAGES_TO_FIXUP)
+  vcpkg_cmake_config_fixup(PACKAGE_NAME ${wpi_pkg})
+endforeach()
+
 
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include" "${CURRENT_PACKAGES_DIR}/debug/share")
 
