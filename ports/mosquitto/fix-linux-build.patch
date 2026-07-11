@@ -1,8 +1,20 @@
 diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
-index 4585a51a..c94d9c92 100644
+index 4585a51a..c2196275 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -154,6 +154,8 @@ if(WITH_STATIC_LIBRARIES)
+@@ -147,13 +147,18 @@ if(WITH_STATIC_LIBRARIES)
+ 			POSITION_INDEPENDENT_CODE 1
+ 		)
+ 	endif()
++	if(WITH_WEBSOCKETS AND WITH_WEBSOCKETS_BUILTIN)
++		target_include_directories(libmosquitto_static PUBLIC "${mosquitto_SOURCE_DIR}/deps/picohttpparser")
++	endif()
+ 
+-	target_link_libraries(libmosquitto_static PRIVATE ${LIBRARIES})
++	target_link_libraries(libmosquitto_static PUBLIC ${LIBRARIES})
+ 
+-	target_include_directories(libmosquitto_static PRIVATE
++	target_include_directories(libmosquitto_static PUBLIC
  		"${mosquitto_SOURCE_DIR}"
  		"${mosquitto_SOURCE_DIR}/include"
  		"${mosquitto_SOURCE_DIR}/lib"
@@ -11,3 +23,33 @@ index 4585a51a..c94d9c92 100644
  	)
  
  	set_target_properties(libmosquitto_static PROPERTIES
+diff --git a/lib/cpp/CMakeLists.txt b/lib/cpp/CMakeLists.txt
+index 2007f7a6..76defdd6 100644
+--- a/lib/cpp/CMakeLists.txt
++++ b/lib/cpp/CMakeLists.txt
+@@ -37,7 +37,6 @@ install(TARGETS mosquittopp
+ 
+ if(WITH_STATIC_LIBRARIES)
+ 	add_library(mosquittopp_static STATIC
+-		${C_SRC}
+ 		${CPP_SRC}
+ 	)
+ 	if(WITH_PIC)
+@@ -46,13 +45,15 @@ if(WITH_STATIC_LIBRARIES)
+ 		)
+ 	endif()
+ 
+-	target_include_directories(mosquittopp_static PRIVATE
++	target_include_directories(mosquittopp_static PUBLIC
+ 		"${mosquitto_SOURCE_DIR}/include"
+ 		"${mosquitto_SOURCE_DIR}/lib"
+ 		"${mosquitto_SOURCE_DIR}/lib/cpp"
+ 	)
+ 
+-	target_link_libraries(mosquittopp_static PRIVATE ${LIBRARIES})
++	target_link_libraries(mosquittopp_static PUBLIC libmosquitto_static)
++
++	target_link_libraries(mosquittopp_static PUBLIC ${LIBRARIES})
+ 
+ 	set_target_properties(mosquittopp_static PROPERTIES
+ 		OUTPUT_NAME mosquittopp_static
